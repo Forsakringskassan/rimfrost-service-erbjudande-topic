@@ -29,6 +29,20 @@ public class ErbjudandeTopicProviderYamlTest
    }
 
    @Test
+   @DisplayName("Config utan erbjudanden laddas från sökväg angiven via konfigurationsproperty")
+   void init_loadsConfigWithEmptyMapFromApplicationConfigPath() throws Exception
+   {
+      var configPath = Path.of(getClass().getClassLoader().getResource("config-empty-map-test.yaml").toURI());
+      ErbjudandeTopicProvider provider = new ErbjudandeTopicProvider();
+      setField(provider, "erbjudandeTopicConfigPath", configPath.toString());
+
+      invokeInit(provider);
+
+      assertNotNull(provider.getErbjudandeTopics());
+      assertEquals(0, provider.getErbjudandeTopics().size());
+   }
+
+   @Test
    @DisplayName("Config som inte uppfyller JSON Schema ska avvisas")
    void init_shouldFailWhenConfigViolatesSchema() throws Exception
    {

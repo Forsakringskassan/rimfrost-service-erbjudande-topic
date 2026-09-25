@@ -18,6 +18,13 @@ public class ErbjudandeTopicConfig
 
    public void setErbjudandeTopics(Map<String, String> erbjudandeTopics)
    {
-      this.erbjudandeTopics = Map.copyOf(erbjudandeTopics);
+      if (erbjudandeTopics == null)
+      {
+         this.erbjudandeTopics = Map.of();
+      }
+      else
+      {
+         this.erbjudandeTopics = Map.copyOf(erbjudandeTopics);
+      }
    }
 }

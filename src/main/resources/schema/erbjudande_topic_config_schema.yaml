@@ -9,5 +9,5 @@ additionalProperties: false
 
 properties:
   erbjudandeTopics:
-    type: object
+    type: ["object", "null"]
     additionalProperties: { type: string }
