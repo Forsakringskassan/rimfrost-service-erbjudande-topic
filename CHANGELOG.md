@@ -2,13 +2,19 @@
 
 Changelog of rimfrost-service-erbjudande-topic.
 
+## 0.1.1 (2026-09-25)
+
+### Bug Fixes
+
+-  Add missing required property to non-test config.yaml ([fcf5f](https://github.com/Forsakringskassan/rimfrost-service-erbjudande-topic/commit/fcf5f1ecdf51e53) Lars Persson)  
+
+## rimfrost-1_2 (2026-09-25)
+
 ## 0.1.0 (2026-09-25)
 
 ### Features
 
 -  Add support for configurable topics ([0185e](https://github.com/Forsakringskassan/rimfrost-service-erbjudande-topic/commit/0185ef00dedb90a) Lars Persson)  
-
-## rimfrost-1_2 (2026-06-12)
 
 ## 0.0.1 (2026-06-12)
 
