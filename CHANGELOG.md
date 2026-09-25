@@ -2,6 +2,14 @@
 
 Changelog of rimfrost-service-erbjudande-topic.
 
+## 0.1.0 (2026-09-25)
+
+### Features
+
+-  Add support for configurable topics ([0185e](https://github.com/Forsakringskassan/rimfrost-service-erbjudande-topic/commit/0185ef00dedb90a) Lars Persson)  
+
+## rimfrost-1_2 (2026-06-12)
+
 ## 0.0.1 (2026-06-12)
 
 ### Features
