@@ -8,6 +8,8 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.nio.file.Path;
+import java.util.Optional;
+
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import se.fk.github.rimfrost.erbjudande.topic.integration.config.ErbjudandeTopicProvider;
@@ -20,7 +22,7 @@ public class ErbjudandeTopicProviderYamlTest
    {
       var configPath = Path.of(getClass().getClassLoader().getResource("config-path-test.yaml").toURI());
       ErbjudandeTopicProvider provider = new ErbjudandeTopicProvider();
-      setField(provider, "erbjudandeTopicConfigPath", configPath.toString());
+      setField(provider, "erbjudandeTopicConfigPath", Optional.of(configPath.toString()));
 
       invokeInit(provider);
 
@@ -34,7 +36,7 @@ public class ErbjudandeTopicProviderYamlTest
    {
       var configPath = Path.of(getClass().getClassLoader().getResource("config-empty-map-test.yaml").toURI());
       ErbjudandeTopicProvider provider = new ErbjudandeTopicProvider();
-      setField(provider, "erbjudandeTopicConfigPath", configPath.toString());
+      setField(provider, "erbjudandeTopicConfigPath", Optional.of(configPath.toString()));
 
       invokeInit(provider);
 
@@ -48,7 +50,7 @@ public class ErbjudandeTopicProviderYamlTest
    {
       var configPath = Path.of(getClass().getClassLoader().getResource("config-schema-invalid-test.yaml").toURI());
       ErbjudandeTopicProvider provider = new ErbjudandeTopicProvider();
-      setField(provider, "erbjudandeTopicConfigPath", configPath.toString());
+      setField(provider, "erbjudandeTopicConfigPath", Optional.of(configPath.toString()));
 
       var ex = assertThrows(IllegalStateException.class, () -> invokeInit(provider));
       assertTrue(ex.getMessage().contains("Config violates JSON Schema"));
@@ -60,13 +62,24 @@ public class ErbjudandeTopicProviderYamlTest
    {
       var configPath = Path.of(getClass().getClassLoader().getResource("config-missing-section-test.yaml").toURI());
       ErbjudandeTopicProvider provider = new ErbjudandeTopicProvider();
-      setField(provider, "erbjudandeTopicConfigPath", configPath.toString());
+      setField(provider, "erbjudandeTopicConfigPath", Optional.of(configPath.toString()));
 
       var ex = assertThrows(IllegalStateException.class, () -> invokeInit(provider));
       assertTrue(ex.getMessage().contains("Config violates JSON Schema"));
    }
 
-   private static void setField(Object target, String fieldName, String value) throws Exception
+   @Test
+   @DisplayName("Classpath discovery ska försökas ifall property inte är satt")
+   void init_shouldFallBackToClasspathDiscoveryWhenConfigPropNotSet() throws Exception
+   {
+      ErbjudandeTopicProvider provider = new ErbjudandeTopicProvider();
+      setField(provider, "erbjudandeTopicConfigPath", Optional.empty());
+
+      assertNotNull(provider.getErbjudandeTopics());
+      assertEquals(0, provider.getErbjudandeTopics().size());
+   }
+
+   private static void setField(Object target, String fieldName, Optional<String> value) throws Exception
    {
       Field field = target.getClass().getDeclaredField(fieldName);
       field.setAccessible(true);
