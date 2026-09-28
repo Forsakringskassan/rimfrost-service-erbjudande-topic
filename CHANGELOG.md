@@ -2,13 +2,19 @@
 
 Changelog of rimfrost-service-erbjudande-topic.
 
+## 0.1.2 (2026-09-28)
+
+### Bug Fixes
+
+-  Add support for falling back to classpath when config path prop not set ([f8fb7](https://github.com/Forsakringskassan/rimfrost-service-erbjudande-topic/commit/f8fb78b9d60b21b) Lars Persson)  
+
+## rimfrost-1_2 (2026-09-25)
+
 ## 0.1.1 (2026-09-25)
 
 ### Bug Fixes
 
 -  Add missing required property to non-test config.yaml ([fcf5f](https://github.com/Forsakringskassan/rimfrost-service-erbjudande-topic/commit/fcf5f1ecdf51e53) Lars Persson)  
-
-## rimfrost-1_2 (2026-09-25)
 
 ## 0.1.0 (2026-09-25)
 
