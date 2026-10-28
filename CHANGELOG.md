@@ -2,13 +2,22 @@
 
 Changelog of rimfrost-service-erbjudande-topic.
 
+## 0.1.3 (2026-10-28)
+
+### Bug Fixes
+
+-  Replace github workflows ([7103e](https://github.com/Forsakringskassan/rimfrost-service-erbjudande-topic/commit/7103e97b29dc065) Lars Persson)  
+
+### Dependency updates
+
+- pin forsakringskassan/.github action to cbd74f1 ([76e5c](https://github.com/Forsakringskassan/rimfrost-service-erbjudande-topic/commit/76e5c8dd3c55def) renovate[bot])  
+## rimfrost-1_2 (2026-09-28)
+
 ## 0.1.2 (2026-09-28)
 
 ### Bug Fixes
 
 -  Add support for falling back to classpath when config path prop not set ([f8fb7](https://github.com/Forsakringskassan/rimfrost-service-erbjudande-topic/commit/f8fb78b9d60b21b) Lars Persson)  
-
-## rimfrost-1_2 (2026-09-25)
 
 ## 0.1.1 (2026-09-25)
 
