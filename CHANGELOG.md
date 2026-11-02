@@ -2,7 +2,7 @@
 
 Changelog of rimfrost-service-erbjudande-topic.
 
-## 0.1.3 (2026-10-28)
+## 0.1.3 (2026-11-01)
 
 ### Bug Fixes
 
@@ -10,6 +10,7 @@ Changelog of rimfrost-service-erbjudande-topic.
 
 ### Dependency updates
 
+- update forsakringskassan/.github digest to 625efb1 ([e8cab](https://github.com/Forsakringskassan/rimfrost-service-erbjudande-topic/commit/e8cab65b3db41fb) renovate[bot])  
 - pin forsakringskassan/.github action to cbd74f1 ([76e5c](https://github.com/Forsakringskassan/rimfrost-service-erbjudande-topic/commit/76e5c8dd3c55def) renovate[bot])  
 ## rimfrost-1_2 (2026-09-28)
 
